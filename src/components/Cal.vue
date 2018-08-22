@@ -3,13 +3,13 @@
       </div>
   </template>
   <script>
-  
+
 export default {
   name: "cal",
-  data: function() {
-return { input: null };
-},
-  computed: {
+  data: function(){ 
+      return (this.input() )
+  },
+computed: {
     fifteen: function() {
       return (this.input * 0.15).toFixed(2);
     },
