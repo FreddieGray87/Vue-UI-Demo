@@ -7,7 +7,7 @@
 export default {
   name: "cal",
   data: function(){ 
-      return (this.input() )
+      return {input: null }
   },
 computed: {
     fifteen: function() {
@@ -38,6 +38,7 @@ computed: {
 <style>
 .input-group-addon,
 .form-control {
-  font-size: 30px;
-}
-</style>
+  font-size: 60px;
+  }
+  
+  </style>

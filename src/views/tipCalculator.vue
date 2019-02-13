@@ -3,13 +3,10 @@
   <div class="row justify-content-center mb-4">
     <div class="col-md-4">
       <div class="input-group">
-        <div class="input-group-addon">$</div>
-        <input class="form-control" type="number" v-model="input"/>
-      </div>
+        <div class="input-group-addon">$<input class="form-control" type="number" v-model.number="input"></div>
     </div>
   </div>
-  <div class="row justify-content-center" v-if="input">
-    <div class="col-md-6">
+  <div class="row justify-content-center" v-if="input"><div class="col-md-6">
       <table class="table">
         <thead>
           <tr>
@@ -37,21 +34,46 @@
     </div>
   </div>
 </div>
+</div>
 </template>
 <script>
 // @ is an alias to /src
-import Cal from '@/components/Cal.vue'
+
 
 export default {
   name: 'cal',
-  components: {
-    Cal
+  data: function(){ 
+      return {input: 0 };},
+computed: {
+    fifteen: function() {
+      return (this.input * .15).toFixed(2);
+    },
+    eighteen: function() {
+      return (this.input * .18).toFixed(2);
+    },
+    twenty: function() {
+      return (this.input * .20).toFixed(2);},
+
+    tFifteen: function() {
+      return (this.input + +this.fifteen).toFixed(2);
+    },
+    tEighteen: function() {
+      return (this.input + +this.eighteen).toFixed(2);
+    },
+    tTwenty: function() {
+      return (this.input + +this.twenty).toFixed(2);
+    }
   }
-}
+};
 </script>
 <style>
 .input-group-addon,
 .form-control {
   font-size: 30px;
+}
+.table{
+  margin: auto;
+  padding: 10px;
+  border: 5px solid black;
 }
 </style>
